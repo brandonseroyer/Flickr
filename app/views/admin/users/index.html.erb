@@ -1,0 +1,8 @@
+<ul>
+  <% @users.each do |user| %>
+  <li><h3><%= user.email %></h3> admin: <%= user.admin %>
+    <%= link_to 'Edit', edit_admin_user_path(user) %> |
+    <%= link_to 'Delete', admin_user_path(user), data: { confirm: "Are you sure?", method: "delete" } %>
+  </li>
+  <% end %>
+</ul>

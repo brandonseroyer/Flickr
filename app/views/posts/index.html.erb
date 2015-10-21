@@ -1,0 +1,27 @@
+    <h1>Posts</h1>
+
+    <ul>
+      <% @posts.each do |post| %>
+      <li><%= link_to post.post, post_path(post) %> by <%= post.author %></li>
+    </ul>
+
+    <hr>
+
+      <ul class="list-inline">
+        <% post.tags.each do |tag| %>
+        <li class="index-tags"><%= tag.name %>
+
+          <% if current_user && current_user.admin? %>
+          <%= link_to edit_tag_path(tag) do %>
+          <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+          <% end %>
+
+          <%= link_to tag_path(tag), id: "delete-tag", data: { confirm: "Delete this tag?", method: "delete"} do %>
+          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+          <% end %>
+        <% end %>
+      </li>
+    </ul>
+    <% end %>
+    <% end %>
+    
