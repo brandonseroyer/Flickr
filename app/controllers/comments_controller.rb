@@ -2,20 +2,24 @@ class CommentsController < ApplicationController
   before_action :find_comment, except: [:new, :create, :index]
 
   def new
-    @comment = Comment.new
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.new
   end
 
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
+
     if @comment.save
-      redirect_to post_path(@post.post)
+      redirect_to post_path(@comment.post)
     else
       render :new
     end
   end
 
   def edit
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
   end
 
   def update
@@ -35,6 +39,6 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:content, :author :post_id, :user_id)
+    params.require(:comment).permit(:content, :author, :post_id, :user_id)
   end
 end

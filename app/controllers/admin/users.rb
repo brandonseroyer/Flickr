@@ -14,6 +14,10 @@ class Admin::UsersController < ApplicationController
   def edit
 
   end
+  def create
+    @user = User.create( user_params )
+  end
+
 
   def show
   end
@@ -34,7 +38,7 @@ class Admin::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:admin)
+    params.require(:user).permit(:admin, :avatar)
   end
 
   def find_user
