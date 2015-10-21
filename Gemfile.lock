@@ -214,7 +214,7 @@ DEPENDENCIES
   quiet_assets
   rails
   rspec-rails
-  sass-rails
+  sass-rails (>= 3.2)
   shoulda-matchers (= 3.0)
   simplecov
   spring
