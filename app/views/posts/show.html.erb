@@ -1,6 +1,9 @@
 <h1><%= @post.title %></h1>
 
 <%= image_tag @post.image.url(:profile) %>
+<br>
+<br>
+<b>By <%= @post.author %></b>
 <hr>
 
 <p><%= link_to "Edit", edit_post_path(@post) %></p>

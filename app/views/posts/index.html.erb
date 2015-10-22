@@ -1,7 +1,7 @@
       <% @posts.each do |post| %>
-      <%= link_to post.title, post_path(post)  %> by
-      <br><br>
       <%= image_tag post.image.url(:standard) %>
+      <br><br>
+      <%= link_to post.title, post_path(post)  %> <br>by <%= post.author %></li>
 
 
     <hr>
