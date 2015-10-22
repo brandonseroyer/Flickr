@@ -1,6 +1,7 @@
 <h1><%= @post.title %></h1>
 
-<%= image_tag @post.image.url(:medium) %>
+<%= image_tag @post.image.url(:profile) %>
+<hr>
 
 <p><%= link_to "Edit", edit_post_path(@post) %></p>
 <p><%= link_to "Delete", post_path(@post),
