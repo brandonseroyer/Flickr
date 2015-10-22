@@ -13,3 +13,20 @@
 */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+/* navbar */
+.navbar-default {
+  background-color: black;
+
+}
+
+#text-color {
+  color: white;
+  font-size: 16px;
+}
+
+#flickr {
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+}
