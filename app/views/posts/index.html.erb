@@ -1,8 +1,8 @@
-
-    <ul>
       <% @posts.each do |post| %>
-      <li><%= link_to post.title, post_path(post) %> by </li>
-    </ul>
+      <%= link_to post.title, post_path(post)  %> by
+      <br><br>
+      <%= image_tag post.image.url(:large) %>
+
 
     <hr>
 

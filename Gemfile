@@ -10,7 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.5'
-gem "paperclip", "~> 4.3"
+gem "paperclip", '~> 4.1'
 
 
 group :development do

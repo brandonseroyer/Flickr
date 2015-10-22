@@ -220,7 +220,7 @@ DEPENDENCIES
   factory_girl_rails
   jquery-rails
   launchy
-  paperclip (~> 4.3)
+  paperclip (~> 4.1)
   pg
   pry
   quiet_assets

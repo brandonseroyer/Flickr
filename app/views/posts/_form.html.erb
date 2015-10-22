@@ -1,14 +1,15 @@
+<%= form_for @post, html: { multipart: true } do |f| %>
 
-<%= form_for @post do |f| %>
+  <%= f.file_field :image %>
+
   <div class='form-group'>
     <%= f.label :title %>
     <%= f.text_field :title, class: "form-control", required: 'required' %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :author, value: current_user.name %>
   </div>
-  <%= image_tag @user.avatar.url %>
-  <%= image_tag @user.avatar.url(:medium) %>
-  <%= image_tag @user.avatar.url(:thumb) %>
+
+
   <div class="form-group">
     <b>Tags</b><br>
     <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |c| %>
