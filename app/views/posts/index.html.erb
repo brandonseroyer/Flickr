@@ -1,12 +1,20 @@
-
-      <% @posts.each do |post| %>
-      <%= image_tag post.image.url(:standard) %>
-      <br><br>
-      <div>
-      <%= link_to post.title, post_path(post)  %> <br>by <%= post.author %>
-    </div>
-
+<% @posts.each do |post| %>
+  <%= image_tag post.image.url(:standard) %>
+  <br><br>
+  <div>
+    <%= link_to post.title, post_path(post)  %> <br>by <%= post.author %>
+    <%= form_for [post, @upvote], remote: true do |f| %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :post_id, value: post.id %>
+      <%= f.submit 'Upvote', class: 'upvote-submit' %>
+    <% end %>
+    <span id="upvote_<%= post.id %>">
+      <%= post.upvotes.count %>
+    </span>
     <hr>
+  </div>
+
+  <hr>
 
       <ul class="list-inline">
         <% post.tags.each do |tag| %>
@@ -24,4 +32,4 @@
       </li>
     </ul>
     <% end %>
-    <% end %>
+<% end %>
