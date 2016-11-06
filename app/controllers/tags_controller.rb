@@ -13,14 +13,9 @@ class TagsController < ApplicationController
     @tag = Tag.new(tag_params)
     if @tag.save
       redirect_to new_post_path
-    else
-
     end
   end
-
-  def edit
-  end
-
+  
   def update
     if @tag.update(tag_params)
       redirect_to posts_path
@@ -34,9 +29,8 @@ class TagsController < ApplicationController
     redirect_to posts_path
   end
 
-
   private
-
+  
   def find_tag
     @tag = Tag.find(params[:id])
   end
